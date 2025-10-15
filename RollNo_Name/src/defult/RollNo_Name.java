@@ -1,0 +1,89 @@
+package defult;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class RollNo_Name extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					RollNo_Name frame = new RollNo_Name();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public RollNo_Name() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Name :");
+		lblNewLabel.setBounds(70, 69, 46, 14);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Roll No :");
+		lblNewLabel_1.setBounds(70, 131, 46, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		textField = new JTextField();
+		textField.setBounds(154, 66, 86, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(154, 128, 86, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Clear");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("");
+				textField_1.setText("");
+			}
+		});
+		btnNewButton.setBounds(70, 191, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Submit");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String roll=textField.getText();
+				String name=textField_1.getText();
+				JOptionPane.showMessageDialog(null,"Roll Number :"+ roll+"\n"+"Name : "+name);
+			}
+		});
+		btnNewButton_1.setBounds(169, 191, 89, 23);
+		contentPane.add(btnNewButton_1);
+
+	}
+}
